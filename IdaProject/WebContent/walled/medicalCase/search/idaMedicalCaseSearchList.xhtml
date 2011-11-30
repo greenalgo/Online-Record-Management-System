@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+
+<body>
+
+
+
+
+
+
+
+<ui:composition template="../../../templates/template.xhtml">
+
+	<ui:param name="title" value="Search List Ida Medical Case"></ui:param>
+	<ui:define name="box">
+
+		<div class="box">
+		<h1>Search List Ida Medical Case</h1>
+		<f:metadata>
+    
+    <f:viewParam name="page" value="#{idaMedicalCaseSearchController.page}"/>
+   	<f:viewParam name="back" value="#{idaMedicalCaseSearchController.back}"/>
+  </f:metadata>
+		<form jsfc="h:form"  id="searchListIdaMedicalCase">
+	 		
+	 		<p:dataTable style="font-size: 10px" page="#{idaMedicalCaseSearchController.page}" pageLinks="5" var="idaCase" value="#{idaMedicalCaseSearchController.lazyModel}" paginator="true" rows="10"
+	dynamic="true" lazy="true" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Id" />
+		</f:facet>
+		<h:link value="#{idaCase.id}" outcome="/walled/medicalCase/idaMedicalCaseView.faces">
+			<f:param name="id" value="#{idaCase.id}" />
+			<f:param name="page" value="#{idaMedicalCaseSearchController.page}" />
+		</h:link>
+	</p:column>
+
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Token No." />
+		</f:facet>
+		<h:outputText value="#{idaCase.tokenNumber}" />
+	</p:column>
+                            
+        <p:column>
+		<f:facet name="header">
+			<h:outputText value="Activity" />
+		</f:facet>
+            <h:outputText value="#{idaCase.idaCaseActivity}" />
+	</p:column>                    
+
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Admission Date" />
+		</f:facet>
+		<h:outputText value="#{idaCase.admittedOn}" >
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+		</h:outputText>
+	</p:column>
+	
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Case Closure Date" />
+		</f:facet>
+		<h:outputText rendered="#{idaCase.isCaseClosed}" value="#{idaCase.idaCaseResult.closureDate}" >
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+		</h:outputText>
+	</p:column>
+
+<!--
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="Person Reporting" />
+		</f:facet>
+		<h:outputText value="#{idaCase.personReportingCase.name.fullName}" />
+	</p:column>
+	
+	
+	
+	<p:column>
+		<f:facet name="header">
+			<h:outputText value="View" />
+		</f:facet>
+		<h:link outcome="details.faces" value="Link">
+        	<f:param name="model" value="#{idaCase.id}"/>
+        	
+    	</h:link>
+	</p:column>
+--></p:dataTable>
+	 		
+		<h:link outcome="idaMedicalCaseSearch.faces" value="Back To Main Search Page"></h:link>
+		
+		</form>
+		
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

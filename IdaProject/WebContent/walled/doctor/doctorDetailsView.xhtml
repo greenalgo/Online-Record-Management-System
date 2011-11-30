@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Doctor Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Doctor</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerDoctorController.idaCaseDoctor.id}" />
+			<f:event type="preRenderView" listener="#{registerDoctorController.searchForIdaDoctor}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredDoctor">
+		 
+
+		 <h:panelGrid columns="2">
+   	    	First Name: <h:outputText value="#{registerDoctorController.idaCaseDoctor.name.firstName}"/>
+   	    	
+   	    	Middle Name: <h:outputText value="#{registerDoctorController.idaCaseDoctor.name.middleName}"/>
+   	    	
+   	    	Last Name: <h:outputText value="#{registerDoctorController.idaCaseDoctor.name.lastName}" />
+   	    	
+   	    	Gender: <h:outputText value="#{registerDoctorController.genderName}" />
+    	   
+    	   	LandLine: <h:outputText value="#{registerDoctorController.idaCaseDoctor.contactDetails.landLine}" />
+    	   
+    	   	Mobile: <h:outputText value="#{registerDoctorController.idaCaseDoctor.contactDetails.mobile}" />
+    	   
+    	   	Email-Id: <h:outputText value="#{registerDoctorController.idaCaseDoctor.contactDetails.emailId}" />
+    	   	
+    	   	Address Line 1: <h:outputText value="#{registerDoctorController.idaCaseDoctor.address.lineOne}"/>
+    	   
+    	    Address Line 2: <h:outputText value="#{registerDoctorController.idaCaseDoctor.address.lineTwo}"/>
+    	    
+    	    Zip: <h:outputText value="#{registerDoctorController.idaCaseDoctor.address.zip}" />
+    	    
+    	     Locality: <h:outputText value="#{registerDoctorController.localityName}" />    	    
+
+    	   
+    		
+
+  		</h:panelGrid>
+		
+		
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+    <f:view>
+<h:head id="head">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>#{title}</title>
+<!--<link href="style.css" rel="stylesheet" type="text/css" />
+-->
+<!--<ui:insert name="title">
+     </ui:insert>
+-->
+ 
+<link type="text/css" rel="stylesheet" href="/IdaProject/skin.css" />
+</h:head>
+<h:outputStylesheet id="css" library="css" name="style.css" target="head"/>
+
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="nav">
+                    
+                    <a href="/IdaProject/walled/medicalCase/batch/idaMedicalCaseBatchCount.faces">Case</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/doctor/registerDoctor.faces">Doctor</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/ngoDriver/registerNgoDriver.faces">Driver</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/ngoCatcher/registerNgoCatcher.faces">Catcher</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/ngo/registerNgo.faces">Ngo</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/ngoVehicle/registerNgoVehicle.faces">Vehicle</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/locality/registerLocality.faces">Locality</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/medicalCase/search/idaMedicalCaseSearch.faces">Search Case</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/callRegister/registerCall.faces">Call</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/callRegister/search/idaCallSearch.faces">Search Call</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/walled/editSearchLists/editSearchLists.faces">Edit Lists</a>
+                    &nbsp;|&nbsp;
+                    <a href="/IdaProject/j_spring_security_logout">Logout</a>
+    </div>
+    <div id="bg"></div>
+  </div>
+  <div id="main-content">
+    <div id="left-column">
+      <div id="logo">
+      <!--<img src="images/big-paw.gif" alt="Pet Logo" width="42" height="45" align="left" />
+      --><h:graphicImage library="images" alt="Pet Logo" width="42" height="45" align="left" name="big-paw.gif"/>
+      <span class="logotxt1">Ida</span>
+      <span class="logotxt2">Reporting</span>
+      <br />
+      <span style="margin-left:15px;"></span>
+      </div>
+     <ui:insert name="box">
+     </ui:insert>
+     
+     </div>
+    
+    <div id="right-column">
+      <!--<div id="main-image">
+		<h:graphicImage library="images" alt="I love Pets" width="153" height="222" name="lady.jpg"/>
+      </div>
+      
+      --><div class="sidebar">
+      </div>
+    </div>
+    
+    
+    
+  </div>
+  
+  
+  
+
+  
+  <div id="footer">Copyright &copy; 2011 IDA, All rights reserved.<br />
+  Version:2K110419.<br />
+  	<span class="crd"><a href="http://www.web-designers-directory.org/">Web site Design</a></span> by : <a href="http://www.web-designers-directory.org/" target="_blank">WDD</a></div>
+</div>
+
+</body>
+</f:view>
+</html>

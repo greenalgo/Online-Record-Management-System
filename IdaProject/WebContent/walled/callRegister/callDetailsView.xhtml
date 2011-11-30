@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Phone Call Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Phone Call</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerCallController.call.id}" />
+                        <f:viewParam name="page" value="#{registerCallController.page}" />
+                        <f:event type="preRenderView" listener="#{registerCallController.searchCall}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredPhoneCall">
+		 
+
+            <table border="0">
+                <tr>
+                    <td>Complain Date:</td>
+                    <td> <h:outputText value="#{registerCallController.call.complainDate}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                </h:outputText>
+                    </td>          
+                </tr>
+                <tr>
+                    <td>Vehicle:</td>
+                    <td> <h:outputText value="#{registerCallController.call.ngoVehicle.concatenatedNgoRegistrationNoAndVehicleType}"/></td>
+                </tr>
+                <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+                <tr><td> <strong>Complainer Details</strong></td><td> <h:outputText value=""/></td></tr>
+                 <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><h:outputText value="#{registerCallController.call.complainer.name.fullName}" /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><h:outputText value="#{registerCallController.complainerGender}" /></td>
+                </tr>
+                 <tr>
+                     <td>Address Line 1:</td><td> <h:outputText value="#{registerCallController.call.complainer.address.lineOne}"/></td>
+                </tr>
+    	   
+                <tr>
+                    <td>Address Line 2:</td><td> <h:outputText value="#{registerCallController.call.complainer.address.lineTwo}"/></td>
+                </tr>    
+                
+                <tr>
+                    <td>Zip:</td><td> <h:outputText value="#{registerCallController.call.complainer.address.zip}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Locality:</td><td> <h:outputText value="#{registerCallController.complainerLocalityName}" /> </td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td><td> <h:outputText value="#{registerCallController.call.complainer.contactDetails.mobile}" /></td>
+                </tr> 
+                <tr>
+                    <td>Email-Id:</td><td> <h:outputText value="#{registerCallController.call.complainer.contactDetails.emailId}" /></td>
+                </tr>
+                 <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+                <tr><td> <strong>Complain Details</strong></td><td> <h:outputText value=""/></td></tr>
+                 <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+                <tr>
+                    <td>Address Line 1:</td><td> <h:outputText value="#{registerCallController.call.complainSource.lineOne}"/></td>
+                </tr>
+    	   
+                <tr>
+                    <td>Address Line 2:</td><td> <h:outputText value="#{registerCallController.call.complainSource.lineTwo}"/></td>
+                </tr>    
+                
+                <tr>
+                    <td> Zip:</td><td> <h:outputText value="#{registerCallController.call.complainSource.zip}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Locality:</td><td> <h:outputText value="#{registerCallController.localityName}" /> </td>
+                </tr>
+                
+                <tr>
+                    <td>Complain:</td><td> <h:outputText value="#{registerCallController.call.complain}" /> </td>
+                </tr>   
+              
+                <tr>
+                    <td>Call Status:</td><td> <h:outputText value="#{registerCallController.callStatusName}" /> </td>
+                </tr>   
+
+    	   </table>
+		 
+    	    <h:link rendered="#{registerCallController.page != null and registerCallController.page > 0}" outcome="/walled/callRegister/search/idaCallSearch.faces" value="Back To Search">
+    	    </h:link>
+            <br />
+		<h:link rendered="#{registerCallController.page != null and registerCallController.page > 0}" outcome="/walled/callRegister/search/idaCallSearchList.faces" value="Back To Search List">
+        	
+	        	<f:param name="page" value="#{registerCallController.page}"/>
+	        	<f:param name="back" value="back"/>
+    	    </h:link>
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

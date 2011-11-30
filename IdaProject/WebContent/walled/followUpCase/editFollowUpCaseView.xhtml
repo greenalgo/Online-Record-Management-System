@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Edit Follow Up Case"></ui:param>
+      <f:metadata>
+          <f:viewParam name="editId" value="#{registerFollowupController.followUpCase.id}"/>
+        <f:event type="preRenderView" listener="#{registerFollowupController.followUpForEdit}" />
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Edit Follow Up Case</h1>
+        <form jsfc="h:form" id="editIdaMedicalCase" prependId="false">
+        <ui:include src="../partials/followUpCase/_followUpCase.xhtml"></ui:include>
+        <input type="submit" jsfc="h:commandButton" value="Edit"  action="#{registerFollowupController.updateFollowUp}"/>
+      	<input id="toEdit" type="text" jsfc="h:inputHidden" value="#{registerFollowupController.followUpCase.id}"/>
+      	<input id="byPassEditGetListener" type="text" jsfc="h:inputHidden" value="#{registerFollowupController.byPassEditGetListener}"/>
+      	
+      	</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

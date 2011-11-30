@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		
+
+    <h:panelGrid id="buriedInCenter" columns="2" rendered="#{idaMedicalCaseClosureController.isCaseClosureVisisbleFor('Buried In Center')}">
+                        
+                         <strong></strong> <h:outputText value=""/>
+                        <strong>Buried In Center Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                        
+                         Reason For Death <input id="reasonForDeath" label="Reason For Death" type="text" jsfc="h:inputTextarea" value="#{idaMedicalCaseClosureController.form.idaBuriedInCenterResult.reasonForDeath}" rows="4" cols="10" />
+                        
+                        Reason For Putdown <input id="reasonForPutdown" label="Reason For Putdown" type="text" jsfc="h:inputTextarea" value="#{idaMedicalCaseClosureController.form.idaBuriedInCenterResult.reasonForPutDown}" rows="4" cols="10" />
+
+                        
+                        Date Of Death * <input id="dateOfDeath" label="Date Of Death" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.form.idaBuriedInCenterResult.dateOfDeath}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>  
+
+                       
+
+                        Doctor *<select label="Doctor" jsfc="h:selectOneMenu" id="selectBuriedInCenterDoctor" value="#{idaMedicalCaseClosureController.form.doctorValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allDoctorMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Doctor" />
+                        </select>
+                        
+                        
+                        Burial Date * <input id="burialDate" label="Burial Date" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.form.idaBuriedInCenterResult.burialDate}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>  
+
+                        
+
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

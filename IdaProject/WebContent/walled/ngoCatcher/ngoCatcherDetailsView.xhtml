@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Ngo Catcher Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Ngo Catcher</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerNgoCatcherController.ngoCatcher.id}" />
+                        <f:event type="preRenderView" listener="#{registerNgoCatcherController.searchForNgoCatcher}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredNgoCatcher">
+		 
+
+            <table border="0">
+                <tr><td>First Name:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.name.firstName}"/></td></tr>
+   	    	
+   	    	<tr><td>Middle Name:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.name.middleName}"/></td></tr>
+   	    	
+   	    	<tr><td>Last Name:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.name.lastName}" /></td></tr>
+   	    	
+                <tr><td>Gender:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.gender.viewValue}" /></td></tr>
+    	   
+    	   	<tr><td>LandLine:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.contactDetails.landLine}" /></td></tr>
+    	   
+    	   	<tr><td>Mobile:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.contactDetails.mobile}" /></td></tr>
+    	   
+    	   	<tr><td>Email-Id: </td><td><h:outputText value="#{registerNgoCatcherController.ngoCatcher.contactDetails.emailId}" /></td></tr>
+    	   	
+    	   	<tr><td>Address Line 1:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.address.lineOne}"/></td></tr>
+    	   
+    	    <tr><td>Address Line 2:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.address.lineTwo}"/></td></tr>
+    	    
+    	    <tr><td>Zip: </td><td><h:outputText value="#{registerNgoCatcherController.ngoCatcher.address.zip}" /></td></tr>
+    	    
+    	   <tr><td> Locality:</td><td> <h:outputText value="#{registerNgoCatcherController.localityName}" /> </td></tr>   	    
+    	   
+           <tr><td>Ngo:</td><td> <h:outputText value="#{registerNgoCatcherController.ngoCatcher.ngo.ngoName}" /></td></tr>
+
+            </table>
+		
+		
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Ida Medical Case Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ida Medical Case Details</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerIdaMedicalCaseController.idaCase.id}" />
+			<f:viewParam name="page" value="#{registerIdaMedicalCaseController.page}" />
+			<f:event type="preRenderView" listener="#{registerIdaMedicalCaseController.searchForIdaCase}" />
+		</f:metadata>
+		<h:messages />
+        <form jsfc="h:form" id="registeredIdaMedicalCase">
+            <table border="0">
+
+                <tr> <td><strong>Case Details</strong> </td><td><h:outputText value=""/> </td></tr>
+        	
+        	<tr> <td>Case Id:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.id}"/> </td></tr>
+                
+                <tr> <td>Activity:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.idaCaseActivity}"/> </td></tr>
+        	
+        	<tr> <td>Token No: </td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.tokenNumber}"/>  </td></tr>
+                
+                <tr> <td>Kennel No: </td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.kennelNumber}"/>  </td></tr>
+        	
+        	<tr> <td>Case Type: </td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCaseTypeName}"/>  </td></tr>
+        	
+                <tr> <td>Sterlization Date: </td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.sterlizationDate}">
+        								<f:convertDateTime pattern="dd/MM/yyyy"/>
+        							</h:outputText>  </td></tr>
+        	<tr> <td>Case Date:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.admittedOn}">
+        								<f:convertDateTime pattern="dd/MM/yyyy"/>
+        							</h:outputText>  </td></tr>
+        	        	
+        	<tr> <td><strong></strong> </td><td><h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong>Brought From Area</strong> </td><td><h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong></strong> </td><td><h:outputText value=""/>  </td></tr>
+        	
+        	<tr> <td>Address Line 1: </td><td><h:outputText value="#{registerIdaMedicalCaseController.dogBroughtFromArea.lineOne}"/>  </td></tr>
+        	
+        	<tr> <td>Address Line 2:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.dogBroughtFromArea.lineTwo}"/>  </td></tr>
+        	
+        	<tr> <td>Zip:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.dogBroughtFromArea.zip}"/>  </td></tr>
+        	
+        	<tr> <td>Locality:</td><td>  <h:outputText value="#{registerIdaMedicalCaseController.localityNameIdaCaseDog}"/>  </td></tr>
+        	
+        	<tr> <td><strong></strong> </td><td><h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong>Person Details</strong></td><td> <h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong></strong></td><td> <h:outputText value=""/>  </td></tr>
+        	
+        	<tr> <td>First Name: </td><td><h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.name.firstName}"/>  </td></tr>
+        	
+        	<tr> <td>Middle Name:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.name.middleName}"/>  </td></tr>
+        	
+        	<tr> <td>Last Name:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.name.lastName}"/>  </td></tr>
+        	
+        	<tr> <td>Person Type:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePersonTypeName}"/>  </td></tr>
+        	
+        	<tr> <td>Gender: </td><td><h:outputText value="#{registerIdaMedicalCaseController.genderNameIdaCasePerson}"/>  </td></tr>
+        	
+        	<tr> <td>Landline:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.contactDetails.landLine}"/>  </td></tr>
+        	
+        	<tr> <td>Mobile: </td><td><h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.contactDetails.mobile}"/>  </td></tr>
+        	
+        	<tr> <td>Email-Id:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.contactDetails.emailId}"/>  </td></tr>
+        	
+        	<tr> <td>Address Line 1:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.address.lineOne}"/>  </td></tr>
+        	
+        	<tr> <td>Address Line 2:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.address.lineTwo}"/>  </td></tr>
+        	
+        	<tr> <td>Zip:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCasePerson.address.zip}"/>  </td></tr>
+        	
+        	<tr> <td>Locality:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.localityNameIdaCasePerson}"/>  </td></tr>
+                
+                <tr> <td><strong></strong></td><td> <h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong>Ngo Related Values</strong></td><td> <h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong></strong></td><td> <h:outputText value=""/>  </td></tr>
+        	
+        	<tr> <td>Driver:</td><td> <h:outputText rendered="#{registerIdaMedicalCaseController.idaCase.ngoDriver != null}" value="#{registerIdaMedicalCaseController.idaCase.ngoDriver.concatenatedNgoAndDriverFullName}"/>  </td></tr>
+        	
+        	<tr> <td>Catcher:</td><td> <h:outputText rendered="#{registerIdaMedicalCaseController.idaCase.ngoCatcher != null}" value="#{registerIdaMedicalCaseController.idaCase.ngoCatcher.concatenatedNgoAndCatcherFullName}"/>  </td></tr>
+        	
+        	<tr> <td>Vehicle:</td><td> <h:outputText rendered="#{registerIdaMedicalCaseController.idaCase.ngoVehicle != null}" value="#{registerIdaMedicalCaseController.idaCase.ngoVehicle.concatenatedNgoRegistrationNoAndVehicleType}"/> </td></tr>
+        	
+        	<tr> <td><strong></strong></td><td> <h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong>Dog Case Details</strong></td><td> <h:outputText value=""/>  </td></tr>
+        	<tr> <td><strong></strong></td><td> <h:outputText value=""/>  </td></tr>
+        	
+        	<tr> <td>Gender:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.genderNameIdaCaseDog}"/>  </td></tr>
+        	
+        	<tr> <td>Age: </td><td><h:outputText rendered="#{registerIdaMedicalCaseController.idaDog.age != null and registerIdaMedicalCaseController.idaDog.age > 0}" value="#{registerIdaMedicalCaseController.idaDog.age}"/>  </td></tr>
+        	
+        	<tr> <td>Admission Reasons:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.idaCaseAdmissionReasonsCsvList}"/>  </td></tr>
+        	
+        	<tr> <td>Physical Description:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaDog.physicalDescription}" />  </td></tr>
+        	
+        	<tr> <td>Treatment Prescribed:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.idaCase.treatmentPrescribed}" />  </td></tr>
+        	
+        	<tr> <td>Doctor:</td><td> <h:outputText value="#{registerIdaMedicalCaseController.doctorName}"/>  </td></tr>
+        	
+        	
+        	
+        	
+        	
+                </table>
+        	
+        	<h:link rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0}" outcome="/walled/medicalCase/search/idaMedicalCaseSearchList.faces" value="Back To Search List">
+        	
+	        	<f:param name="page" value="#{registerIdaMedicalCaseController.page}"/>
+	        	<f:param name="back" value="back"/>
+    	    </h:link>
+    	    <br />
+    	    <h:link rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0 and !registerIdaMedicalCaseController.idaCase.isCaseClosed}" outcome="/walled/medicalCase/editIdaMedicalCase.faces" value="Edit">
+        	
+	        	<f:param name="editId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+	        	
+    	    </h:link>
+            
+            <h:outputText value="Case Closed Cannot Edit" rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0 and registerIdaMedicalCaseController.idaCase.isCaseClosed}" />
+            
+    	    <br />
+    	    <h:link rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0}" outcome="/walled/medicalCase/search/idaMedicalCaseSearch.faces" value="Back To Search">
+    	    </h:link>
+    	    <br />
+    	    <h:link rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0 and !registerIdaMedicalCaseController.idaCase.isCaseClosed and !registerIdaMedicalCaseController.idaCase.isMobileActivity}" outcome="/walled/medicalCase/closure/idaMedicalCaseClose.faces" value="Close Case">
+        	
+	        	<f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+	        	
+    	    </h:link>
+    	    
+    	     <h:link rendered="#{registerIdaMedicalCaseController.page != null and registerIdaMedicalCaseController.page > 0 and !registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.isMobileActivity}" outcome="/walled/medicalCase/closure/mobileIdaMedicalCaseClose.faces" value="Close Mobile Case">
+        	
+	        	<f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+	        	
+    	    </h:link>
+    	    
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'RESIDENT'}" outcome="/walled/medicalCase/closure/idaMedicalCaseResidentView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'RELEASED'}" outcome="/walled/medicalCase/closure/idaMedicalCaseReleaseView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'ADOPTED'}" outcome="/walled/medicalCase/closure/idaMedicalCaseAdoptionView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'KORA_KENDRA'}" outcome="/walled/medicalCase/closure/idaMedicalCaseKoraKendaraView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'BURIED_IN_CENTRE'}" outcome="/walled/medicalCase/closure/idaMedicalCaseBuriedInCenterView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+	     
+            <h:link rendered="#{registerIdaMedicalCaseController.idaCase.isCaseClosed and registerIdaMedicalCaseController.idaCase.idaCaseResult.idaResultType == 'MOBILE'}" outcome="/walled/medicalCase/closure/mobileIdaMedicalCaseCloseView.faces" value="Case Closed, View Details.">
+        	<f:param name="caseId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+                <f:param name="closureId" value="#{registerIdaMedicalCaseController.idaCase.idaCaseResult.id}"/>
+	    </h:link>
+        </form>      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

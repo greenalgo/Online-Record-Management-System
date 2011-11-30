@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+
+
+ 
+    
+      
+      
+      
+      
+    
+		 <h:messages style="color: red"/>
+
+		 <table border="0">
+	
+                	
+   	    	<tr>
+   	    		<td>Treatment Date</td>
+   	    		<td><input id="complainDate" label="Treatment Date" type="text" jsfc="h:inputText" value="#{registerCallController.call.complainDate}" size="15" required="true">
+                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                              </input></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	<tr>
+   	    		<td>Treatment Prescribed</td>
+   	    		<td><input id="idaCaseDogTreatment" label="Treatment Prescribed" type="text" jsfc="h:inputTextarea" value="#{registerIdaMedicalCaseController.idaCase.treatmentPrescribed}" rows="4" cols="10"/></td>
+   	    		<td></td>
+   	    	</tr>
+                     
+                <tr>
+	   	    	<td height="50" colspan="10"><strong>Ngo Related Details</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Doctor *</td>
+   	    		<td><select jsfc="h:selectOneMenu" label="Doctor" id="idaCaseDoctor" value="#{registerIdaMedicalCaseController.doctorValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseController.doctorMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Doctor" />
+					</select>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Ngo Driver *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoDriver" styleClass="blockSelect" rendered="#{sessionScope.isReadOnly or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseController.ngoDriverValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseController.ngoDriverMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Ngo Driver" />
+					</select>
+					<input id="ngoDriverRO" rendered="#{!sessionScope.isReadOnly and !sessionScope.isCallerCase}" type="text" styleClass="block" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	<tr>
+   	    		<td>Ngo Catcher *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoCatcher" styleClass="blockSelect" rendered="#{sessionScope.isReadOnly or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseController.ngoCatcherValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseController.ngoCatcherMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Ngo Catcher" />
+					</select>
+					<input id="ngoCatcherRO" rendered="#{!sessionScope.isReadOnly and !sessionScope.isCallerCase}" type="text" styleClass="block" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	<tr>
+   	    		<td>Vehicle *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoVehicle" styleClass="blockSelect" rendered="#{sessionScope.isReadOnly or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseController.ngoVehicleValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseController.ngoVehicleMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Vehicle" />
+					</select>
+					<input id="ngoVehicleRO" rendered="#{!sessionScope.isReadOnly and !sessionScope.isCallerCase}" type="text" styleClass="block" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>&nbsp;</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	
+   	    	
+   	    	
+   	   
+
+  		</table>
+		
+		
+		
+      
+  
+   
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+
+
+</ui:composition>

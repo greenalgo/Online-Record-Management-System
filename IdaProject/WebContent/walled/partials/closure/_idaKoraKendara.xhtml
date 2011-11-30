@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		
+
+    <h:panelGrid id="koraKendara" columns="2" rendered="#{idaMedicalCaseClosureController.isCaseClosureVisisbleFor('Kora Kendra')}">
+                        
+                         <strong></strong> <h:outputText value=""/>
+                        <strong>Kora Kendara Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                        
+                        Reason For Death <input id="reasonForDeathKoraKendara" label="Reason For Death" type="text" jsfc="h:inputTextarea" value="#{idaMedicalCaseClosureController.form.idaKoraKendaraResult.reasonForDeath}" rows="4" cols="10" />
+                        
+                        Reason For Putdown <input id="reasonForPutdownKoraKendara" label="Reason For Putdown" type="text" jsfc="h:inputTextarea" value="#{idaMedicalCaseClosureController.form.idaKoraKendaraResult.reasonForPutDown}" rows="4" cols="10" />
+
+                        
+                        Date Of Death * <input id="dateOfDeathKoraKendara" label="Date Of Death" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.form.idaKoraKendaraResult.dateOfDeath}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>  
+
+                       
+
+                        Doctor *<select label="Doctor" jsfc="h:selectOneMenu" id="selectKoraKendaraDoctor" value="#{idaMedicalCaseClosureController.form.doctorValue}" required="true"> 
+                            <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allDoctorMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                           <f:attribute name="label" value="Doctor" />
+                        </select>
+                        
+                        Van *<select label="Van" jsfc="h:selectOneMenu" id="selectKoraKendaraVan" value="#{idaMedicalCaseClosureController.form.vanValue}" required="true"> 
+                            <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allVanMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                           <f:attribute name="label" value="Van" />
+                        </select>
+                        
+                        Driver *<select label="Driver" jsfc="h:selectOneMenu" id="selectKoraKendaraDriver" value="#{idaMedicalCaseClosureController.form.driverValue}" required="true"> 
+                            <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allDriverMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                           <f:attribute name="label" value="Driver" />
+                        </select>
+                        
+                        Catcher *<select label="Catcher" jsfc="h:selectOneMenu" id="selectKoraKendaraCacther" value="#{idaMedicalCaseClosureController.form.catcherValue}" required="true"> 
+                            <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allCatcherMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                           <f:attribute name="label" value="Catcher" />
+                        </select>
+                        
+                        
+                        Pickup Date * <input id="pickUpDate" label="Pickup Date" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.form.idaKoraKendaraResult.pickUpDate}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>  
+
+                        
+
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

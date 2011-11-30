@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../../templates/template.xhtml">
+      <ui:param name="title" value="Mobile Ida Medical Case Closure"></ui:param>
+      <f:metadata>
+      	<f:viewParam name="closureId" value="#{idaMobileMedicalCaseClosureController.idaCase.id}"/>
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Mobile Ida Medical Case Close</h1>
+        <form jsfc="h:form" id="closeIdaMedicalCase">
+            <h:messages style="color: red"/>
+            <h:panelGrid columns="2">
+                
+                Case Closure Date: <input id="caseClosureDate"  label="Case Closure Date" type="text" jsfc="h:inputText" value="#{idaMobileMedicalCaseClosureController.mobileIdaCaseResult.closureDate}" size="11" required="true">
+											<f:convertDateTime pattern="dd/MM/yyyy"/>
+									</input>	
+            	Case Closure Type:  <h:selectOneMenu label="Case Closure Type" id="selectCaseClosureType" value="#{idaMobileMedicalCaseClosureController.mobileResultTypeValue}" required="true">
+                                        <f:selectItems value="#{idaMobileMedicalCaseClosureController.mobileResultTypeMap}" />
+                                        <f:validator validatorId="com.green.jsf.SelectValidator" />
+                            			<f:attribute name="label" value="Case Closure Type" />
+                                </h:selectOneMenu>
+                 Remarks: 	<input id="remarks" label="Remarks" type="text" jsfc="h:inputTextarea" value="#{idaMobileMedicalCaseClosureController.mobileIdaCaseResult.remarks}" rows="7" cols="20"/>
+                
+   	    		
+              	
+				
+	        </h:panelGrid>
+	        <input id="toClose" type="text" jsfc="h:inputHidden" value="#{idaMobileMedicalCaseClosureController.idaCase.id}"/>
+	      	<input type="submit" jsfc="h:commandButton" value="Close"  action="#{idaMobileMedicalCaseClosureController.closeIdaCase}"/>
+               
+        </form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

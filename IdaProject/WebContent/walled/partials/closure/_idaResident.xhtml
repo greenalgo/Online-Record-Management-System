@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		
+
+    <h:panelGrid id="resident" columns="2" rendered="#{controller.isCaseClosureVisisbleFor('Resident')}">
+                        <strong></strong> <h:outputText value=""/>
+                        <strong>Center Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                        
+                        Center *<select label="Center" jsfc="h:selectOneMenu" id="selectCenterResident" value="#{controller.form.centerValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.centerMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                           <f:attribute name="label" value="Center" />
+                        </select>
+                         <strong></strong> <h:outputText value=""/>
+                        <strong>Animal Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+
+                        Name *<input id="nameResident" label="Name" type="text" jsfc="h:inputText" value="#{controller.form.idaResidentResult.idaResident.idaResidentAnimal.name}" size="15" required="true"/>
+
+                        Gender *<select label="Gender" jsfc="h:selectOneMenu" id="selectRsidentDogGender" value="#{controller.form.dogGenderValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.genderMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Gender" />
+                        </select>
+
+                        
+
+                        Age <input id="residentAge" label="Age" type="text" jsfc="h:inputText" value="#{controller.form.idaResidentResult.idaResident.idaResidentAnimal.age}" size="2" />
+
+                        Breed <input id="residentBreed" label="Breed" type="text" jsfc="h:inputText" value="#{controller.form.idaResidentResult.idaResident.idaResidentAnimal.breedType}" size="40"/>
+
+                        Physical Description <input id="residentPhysicalDescription" label="Physical Description" type="text" jsfc="h:inputTextarea" value="#{controller.form.idaResidentResult.idaResident.idaResidentAnimal.physicalDescription}" rows="4" cols="10" />
+                        
+                        Case History <input id="residentCaseHistory" label="Case History" type="text" jsfc="h:inputTextarea" value="#{controller.form.idaResidentResult.idaResident.idaResidentAnimal.caseHistory}" rows="4" cols="10" />
+
+
+    	    
+    	   
+    		
+    		
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

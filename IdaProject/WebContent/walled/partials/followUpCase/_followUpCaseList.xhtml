@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+
+
+ 
+    
+      
+      
+      
+      
+      
+
+        
+		<h:dataTable  id="batchDogs" binding="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable}" value="#{registerIdaMedicalCaseBatchController.batchDogs}" var="idaDog">
+  			<h:column>
+  				<f:facet name="header">Sr.</f:facet>
+  				<input id="serialNumber" type="text" jsfc="h:outputText" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}" size="2"/>
+  			</h:column>
+  			<h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">TN. *</f:facet>
+                                <input id="tokenNumber" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Token Number" type="text" jsfc="h:inputText" value="#{idaDog.tokenNo}" size="7"  required="#{registerIdaMedicalCaseBatchController.isRequired}"/>
+  			</h:column>
+  			<h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">KN. *</f:facet>
+  				<input id="kennelNumber" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Kennel Number" type="text" jsfc="h:inputText" value="#{idaDog.kennelNo}" size="7"  />
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Age</f:facet>
+  				<input id="idaCaseDogAge" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Age" type="text" jsfc="h:inputText" value="#{idaDog.age}" size="2"/>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Gender *</f:facet>
+  				<select jsfc="h:selectOneMenu" id="idaCaseDogGender" value="#{idaDog.idaCaseDogGenderValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.genderMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Dog gender" />
+					</select>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Case *</f:facet>
+  				<select jsfc="h:selectOneMenu" id="idaCaseType" value="#{idaDog.idaCaseType}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.idaCaseTypeMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Case" />
+					</select>
+  			</h:column>
+  			
+  		</h:dataTable>
+  
+   
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+
+
+</ui:composition>

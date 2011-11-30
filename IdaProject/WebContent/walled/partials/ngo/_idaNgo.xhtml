@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		 <h:messages style="color: red"/>
+
+		 <h:panelGrid columns="2">
+                     
+                       <strong></strong> <h:outputText value=""/>
+                        <strong>Ngo</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                        
+   	    	Ngo Name. *<input id="vehicleRegistrationNumber" label="Ngo Name" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.ngoName}" size="35" required="true"/>
+                
+                
+                 <strong></strong> <h:outputText value=""/>
+                        <strong>Chair Person</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+   	    	
+   	    	First Name *<input id="firstName" label="First Name" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.name.firstName}" size="15" required="true"/>
+
+   	    	Middle Name <input id="middleName" label="Middle Name" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.name.middleName}" size="15"/>
+
+   	    	Last Name *<input id="lastName" label="Last Name" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.name.lastName}" size="15" required="true"/>
+
+   	    	Gender *<select jsfc="h:selectOneMenu" id="selectGender" value="#{registerNgoController.genderValue}" required="true"> 
+                                 <option jsfc="f:selectItems" value="#{registerNgoController.genderMap}" />
+                                 <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                 <f:attribute name="label" value="Gender" />
+                         </select>
+
+    	   	LandLine <input id="landLine" label="LandLine" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.contactDetails.landLine}" size="15" />
+
+    	   	Mobile <input id="mobile" label="Mobile" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.contactDetails.mobile}" size="12"/>
+
+    	   	Email-Id <input id="emailId" label="Email-Id" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.contactDetails.emailId}" size="35" />
+
+    	   	Address Line 1 *<input id="addressLine1" label="Address Line 1" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.address.lineOne}" size="40" required="true"/>
+
+    	    Address Line 2 <input id="addressLine2" label="Address Line 2" type="text" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.address.lineTwo}" size="40" />
+
+    	    Zip <input id="zip" type="text" label="Zip" jsfc="h:inputText" value="#{registerNgoController.ngo.chairPerson.address.zip}" size="6"/>
+
+    	    Locality * <select jsfc="h:selectOneMenu" id="selectLocality" value="#{registerNgoController.localityValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerNgoController.localityMap}" />
+                                  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Locality" />
+					</select> 
+
+
+    		
+    		<h:inputHidden id="ngoType" value="#{registerNgoController.ngo.chairPerson.personType}" />
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

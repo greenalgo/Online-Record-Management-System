@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Ngo Vehicle List"></ui:param>
+     <f:metadata>
+      	<f:event type="preRenderView" listener="#{registerNgoVehicleController.searchAllNgoVehicle}" />
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ngo Vehicle List</h1>
+        <form jsfc="h:form" id="editNgoVehicle">
+          <h:dataTable value="#{registerNgoVehicleController.ngoVehicleList}" var="ngoVehicle">
+        	
+        	<h:column>
+  				<f:facet name="header">Id</f:facet>
+        		<h:link value="#{ngoVehicle.id}" outcome="/walled/ngoVehicle/editNgoVehicle.faces">
+					<f:param name="editId" value="#{ngoVehicle.id}" />
+				</h:link>
+        	</h:column>	
+        	<h:column>
+  				<f:facet name="header">Ngo</f:facet>
+        		<h:outputText value="#{ngoVehicle.ngo.ngoName}"/>
+        	</h:column>	
+        	<h:column>
+  				<f:facet name="header">Vehicle Type</f:facet>
+        		<h:outputText value="#{ngoVehicle.vehicleType.vehicleType}"/>
+        	</h:column>	
+        	<h:column>
+  				<f:facet name="header">Registration No.</f:facet>
+        		<h:outputText value="#{ngoVehicle.registrationNumber}"/>
+        	</h:column>	
+        </h:dataTable>
+        <br />
+        <br />
+        <h:link value="All Edit List" outcome="/walled/editSearchLists/editSearchLists.faces">
+					</h:link>
+		</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

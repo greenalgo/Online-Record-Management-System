@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+
+
+
+<body>
+
+
+
+
+
+
+
+<ui:composition template="../../../templates/template.xhtml">
+	<ui:param name="title" value="Register Ida Medical Case Batch"></ui:param>
+	<ui:define name="box">
+      <h:outputScript id="js" library="javascript" name="jquery-1.4.2.min.js" target="head"/>
+<style>
+
+.suggestionsBox {
+
+position: absolute;
+
+
+
+width: 150px;
+
+height: 200px;
+
+background-color: #212427;
+
+color: #fff;
+
+z-index:9001;
+
+display:none;
+
+overflow:auto;
+
+}
+
+.suggestionsBox input {
+ margin: 5px;
+}
+ </style>
+  <script>
+        
+        function handleValue(selectObject,hiddenId){
+            var selectId = selectObject.id
+            var parentId = "";
+            if(selectId.indexOf(":") != -1){
+               parentId = selectId.split(":")[0] + ":";
+            }
+           
+            
+            var hidden = document.getElementById(parentId + hiddenId);
+            
+            hidden.value = selectObject.value;
+        }
+        
+      
+    </script>
+<script>
+
+jQuery(
+		function() {
+
+	
+		 
+		 
+		 
+		$(".block").bind({
+			keyup: function(event) { 
+			event.preventDefault();
+
+				
+				
+			},
+
+		keydown: function(event) { 
+			
+				event.preventDefault();
+
+			
+			}
+		});
+
+
+		});
+</script>
+		<div class="box">
+		<h1>Register Ida Medical Case Batch</h1>
+             
+		<form jsfc="h:form" id="registerIdaMedicalCaseBatch" prependId="false">
+		<h:messages style="color: red"/>
+	 	<table border="0">
+   	    	
+   	    	
+                    
+                 <tr>
+   	    		<td>Admitted On. *</td>
+                        <td><input id="admittedOn" label="Admitted On." type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCase.admittedOn}" size="11"  >
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </input>    
+                        </td>
+   	    		<td></td>
+   	    	</tr>    
+   	    	
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>Person Details</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>First Name *</td>
+   	    		<td>
+   	    			<input id="idaCasePersonFirstName" label="First Name" readonly="readonly" type="text" jsfc="h:inputText" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.firstName}" size="15" required="true"/>
+   	    			<input id="idaCasePersonFirstNameRO" label="First Name" styleClass="block" type="text" jsfc="h:inputText" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.firstName}"/>
+   	    			
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Middle Name</td>
+   	    		<td>
+   	    				<input id="idaCasePersonMiddleName" label="Middle Name" type="text" jsfc="h:inputText" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.middleName}" size="15"/>
+   	    				<input id="idaCasePersonMiddleNameRO" label="Middle Name" styleClass="block" type="text" jsfc="h:inputText" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.middleName}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Last Name *</td>
+   	    		<td>
+   	    			<input id="idaCasePersonLastName" label="Last Name" type="text" jsfc="h:inputText" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.lastName}" size="15" required="true"/>
+   	    			<input id="idaCasePersonLastNameRO" label="Last Name" type="text" styleClass="block" jsfc="h:inputText" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.name.lastName}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	
+   	    	
+   	    	<tr>
+   	    		<td>Gender *</td>
+   	    		<td><select jsfc="h:selectOneMenu" id="idaCasePersonGender" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Person Gender" value="#{registerIdaMedicalCaseBatchController.idaCasePersonGenderValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.personGenderMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Gender Person" />
+					</select>
+					<input id="idaCasePersonGenderRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Person Gender" styleClass="block" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.gender.viewValue}"/>
+					<input id="idaCasePersonGenderROHI" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Person Gender" styleClass="block" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseBatchController.idaCasePersonGenderValue}"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Landline</td>
+   	    		<td>
+   	    			<input id="idaCasePersonLandline" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Landline" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.landLine}" size="15"/>
+   	    			<input id="idaCasePersonLandlineRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Landline" styleClass="block" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.landLine}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Mobile</td>
+   	    		<td>
+   	    			<input id="idaCasePersonMobile" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Mobile" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.mobile}" size="12"/>
+   	    			<input id="idaCasePersonMobileRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Mobile" type="text" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.mobile}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Email-Id</td>
+   	    		<td>
+   	    			<input id="idaCasePersonEmailId" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Email-Id" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.emailId}" size="35"/>
+   	    			<input id="idaCasePersonEmailIdRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Email-Id" type="text" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.contactDetails.emailId}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Address Line 1 *</td>
+   	    		<td>
+   	    			<input id="idaCasePersonAddressLine1" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Address Line 1" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.lineOne}" size="40" required="true"/>
+   	    			<input id="idaCasePersonAddressLine1RO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Address Line 1" type="text" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.lineOne}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Address Line 2</td>
+   	    		<td>
+   	    			<input id="idaCasePersonAddressLine2" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" label="Address Line 2" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.lineTwo}" size="40" />
+   	    			<input id="idaCasePersonAddressLine2RO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Address Line 2" type="text" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.lineTwo}" />
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Zip</td>
+   	    		<td>
+   	    			<input id="idaCasePersonZip" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" type="text" label="Zip" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.zip}" size="6"/>
+   	    			<input id="idaCasePersonZipRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" type="text" label="Zip" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.idaCasePerson.address.zip}"/>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Locality *</td>
+   	    		<td><select jsfc="h:selectOneMenu" id="idaCasePersonLocality" rendered="#{sessionScope.isNoneCase or sessionScope.isCallerCase}" value="#{registerIdaMedicalCaseBatchController.idaCasePersonLocalityValue}" required="true" onchange="handleValue(this,'idaCasePersonLocalityROHI');"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.localityMap}" />
+                                  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Person Locality" />
+					</select>
+   	    			
+                            <input id="idaCasePersonLocalityRO" rendered="#{!sessionScope.isNoneCase and !sessionScope.isCallerCase}" label="Locality" type="text" styleClass="block" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.ngoChairPersonLocalityViewValue}"/>
+                                <input id="idaCasePersonLocalityROHI" label="Person Locality"  type="text"  jsfc="h:inputHidden" value="#{registerIdaMedicalCaseBatchController.idaCasePersonLocalityValue}"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>Brought From Area</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Address Line 1 *</td>
+   	    		<td><input id="broughtfromareaaddressLine1" label="Address Line 1" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.dogBroughtFromArea.lineOne}" size="40"  /></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Address Line 2</td>
+   	    		<td><input id="broughtfromareaaddressLine2" label="Address Line 2" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.dogBroughtFromArea.lineTwo}" size="40" /></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Zip</td>
+   	    		<td><input id="broughtfromareazip" label="Zip" type="text" jsfc="h:inputText" value="#{registerIdaMedicalCaseBatchController.dogBroughtFromArea.zip}" size="6"/></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Locality *</td>
+   	    		<td><select jsfc="h:selectOneMenu" id="broughtFromAreaLocality" value="#{registerIdaMedicalCaseBatchController.broughtFromLocalityValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.localityMap}" />
+                                  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Brought From Area Locality" />
+					</select>
+   	    			
+                            
+                            
+                            
+   	    		
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>Ngo Related Details</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Ngo Driver *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoDriver" rendered="#{!sessionScope.isNoneCase}" value="#{registerIdaMedicalCaseBatchController.ngoDriverValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.ngoDriverMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Ngo Driver" />
+                                   <f:attribute name="byPassOnNull" value="true" />
+					</select>
+					<input id="ngoDriverRO" rendered="#{sessionScope.isNoneCase}" styleClass="block" type="text" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Ngo Catcher *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoCatcher" rendered="#{!sessionScope.isNoneCase}" value="#{registerIdaMedicalCaseBatchController.ngoCatcherValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.ngoCatcherMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Ngo Catcher" />
+                                  <f:attribute name="byPassOnNull" value="true" />
+					</select>
+					<input id="ngoCatcherRO" rendered="#{sessionScope.isNoneCase}" type="text" styleClass="block" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Vehicle *</td>
+   	    		<td>
+						<select jsfc="h:selectOneMenu" id="ngoVehicle" rendered="#{!sessionScope.isNoneCase}" value="#{registerIdaMedicalCaseBatchController.ngoVehicleValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.ngoVehicleMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Vehicle" />
+                                  <f:attribute name="byPassOnNull" value="true" />
+					</select>
+					<input id="ngoVehicleRO" rendered="#{sessionScope.isNoneCase}" type="text" styleClass="block" jsfc="h:inputText" value="None"/>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Doctor *</td>
+   	    		<td><select jsfc="h:selectOneMenu" id="idaCaseDoctor" value="#{registerIdaMedicalCaseBatchController.doctorValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.doctorMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="Doctor" />
+					</select>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>&nbsp;</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	
+   	    	
+   	    	
+   	   
+
+  		</table>
+  		
+  		
+  		
+  		
+  		
+  		<h:dataTable  id="batchDogs" binding="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable}" value="#{registerIdaMedicalCaseBatchController.batchDogs}" var="idaDog">
+  			<h:column>
+  				<f:facet name="header">Sr.</f:facet>
+  				<input id="serialNumber" type="text" jsfc="h:outputText" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}" size="2"/>
+  			</h:column>
+  			<h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">TN. *</f:facet>
+                                <input id="tokenNumber" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Token Number" type="text" jsfc="h:inputText" value="#{idaDog.tokenNo}" size="7"  required="#{registerIdaMedicalCaseBatchController.isRequired}"/>
+  			</h:column>
+  			<h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">KN. *</f:facet>
+  				<input id="kennelNumber" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Kennel Number" type="text" jsfc="h:inputText" value="#{idaDog.kennelNo}" size="7"  />
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Age</f:facet>
+  				<input id="idaCaseDogAge" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Age" type="text" jsfc="h:inputText" value="#{idaDog.age}" size="2"/>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Gender *</f:facet>
+  				<select jsfc="h:selectOneMenu" id="idaCaseDogGender" value="#{idaDog.idaCaseDogGenderValue}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.genderMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Dog gender" />
+					</select>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Case *</f:facet>
+  				<select jsfc="h:selectOneMenu" id="idaCaseType" value="#{idaDog.idaCaseType}"  > 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.idaCaseTypeMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidatorDependsIsRequired" />
+                                  <f:attribute name="label" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Case" />
+					</select>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Reasons *</f:facet>
+  				<div>
+					<input type="textbox" class="up" id="up#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}" name="scb16" value="Reasons" readonly="readonly" onclick="document.getElementById('suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').style.display='block'" size="7"/>
+				</div>
+  				<div id="suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}" class="suggestionsBox">
+  				<h:selectManyCheckbox id="idaCaseDogAdmissionReasons" value="#{idaDog.admissionReasonValues}" layout="pageDirection" styleClass="chk#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}"> 
+    	    			  <f:selectItems value="#{registerIdaMedicalCaseBatchController.admissionReasonMap}" />
+    	    			   <f:validator validatorId="com.green.jsf.MultiSelectValidatorForLongId" />
+                                  <f:attribute name="label" value="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Admission reasons" />
+                 </h:selectManyCheckbox>
+                 
+                 <input id="idaCaseDogAdmissionReasonsOthers#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}" type="text"  value="" size="17"/>
+                 </div>
+                  <h:inputHidden value="#{idaDog.admissionReasonValuesOthers}" id="hid">
+                    
+                </h:inputHidden>
+                <script>
+
+ 
+
+						jQuery(
+								function() {
+						
+										$('#suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').bind({
+						
+											mouseleave: function(event) { 
+													$('#suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').hide()
+													 
+													},
+													mouseenter: function(event) { 
+														   var pos = $("#up#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}").offset();
+														   var height = 0;
+														   if(!$.browser.msie){
+															    height = $("#up#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}").height() + 5;
+														   }
+
+        								                    $("#suggestionsBox").css( { left: pos.left + "px", top:pos.top + height + "px" } );
+		    												$('#suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').show() 
+
+
+
+														}
+						
+										});
+					
+
+								 
+								$('#up#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').bind({
+								mouseenter: function(event) { $('#suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').show() },
+								mouseleave: function(event) { $('#suggestionsBox#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').hide() }
+								});
+								 
+								 
+								 
+								$('#idaCaseDogAdmissionReasonsOthers#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').bind({
+									keyup: function(event) { 
+								
+										var value = $('#idaCaseDogAdmissionReasonsOthers#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1}').val();
+										
+										document.getElementById('batchDogs:#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex}:hid').value = value;
+										
+										}
+									});
+
+
+								});
+ 
+				</script>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Description *</f:facet>
+  				<input id="idaCaseDogDescription" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Description" type="text" jsfc="h:inputTextarea" value="#{idaDog.physicalDescription}"  rows="4" cols="10"  />
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Treatment</f:facet>
+  				<input id="idaCaseDogTreatment" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Treatment" type="text" jsfc="h:inputTextarea" value="#{idaDog.treatmentPrescribed}"  rows="4" cols="10"/>
+  			</h:column>
+  			<h:column>
+  				<f:facet name="header">Sterlization Dt *</f:facet>
+  				<input id="sterlizationDate" label="#{registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex + 1} - Release Date" type="text" jsfc="h:inputText" value="#{idaDog.sterlizationDate}" size="10"  >
+   	    				<f:convertDateTime pattern="dd/MM/yyyy"/>
+   	    			</input>
+  			</h:column>
+                        <h:column>
+  				<f:facet name="header"></f:facet>
+                                <h:commandButton value="-" action="#{registerIdaMedicalCaseBatchController.deleteRow(registerIdaMedicalCaseBatchController.idaBatchDogHtmlDataTable.rowIndex)}" onclick="document.getElementById('isRequired').value=Math.floor(Math.random()*10001)">
+                                     
+                                 </h:commandButton>
+  			</h:column>
+  		</h:dataTable>
+  		
+                <h:commandButton value="+" action="#{registerIdaMedicalCaseBatchController.increaseRow}" onclick="document.getElementById('isRequired').value=Math.floor(Math.random()*10001)">
+                </h:commandButton>                    
+                
+                <h:inputHidden id="isRequired"  immediate="true" value="#{registerIdaMedicalCaseBatchController.isRequiredString}" valueChangeListener="#{registerIdaMedicalCaseBatchController.valueChangeMethod}">
+                    
+                </h:inputHidden>
+             
+                <br/>
+                <br/>
+  		<input type="submit" jsfc="h:commandButton" value="Register"  action="#{registerIdaMedicalCaseBatchController.saveBatchEntry}" onclick="document.getElementById('isRequired').value='true'"/>
+                <h:inputHidden id="idaCasePersonId"  value="#{registerIdaMedicalCaseBatchController.idaCasePerson.id}" >
+                    
+                </h:inputHidden>
+                
+                <h:inputHidden id="idaCasePhoneCallId"  value="#{registerIdaMedicalCaseBatchController.phoneCall.id}" >
+                    
+                </h:inputHidden>
+		
+		</form>
+		
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

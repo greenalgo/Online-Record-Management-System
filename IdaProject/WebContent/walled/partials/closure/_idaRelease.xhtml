@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		
+
+		 <h:panelGrid id="released" columns="2"  rendered="#{idaMedicalCaseClosureController.isCaseClosureVisisbleFor('Released')}">
+                        
+                         <strong></strong> <h:outputText value=""/>
+                        <strong>Dog Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                        
+                        Release Date * <input id="releaseDate" label="Release Date" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.form.idaReleasedResult.releaseDate}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>  
+
+                       
+
+                        Van *<select label="Van" jsfc="h:selectOneMenu" id="selectReleasedVan" value="#{idaMedicalCaseClosureController.form.vanValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allVanMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Van" />
+                        </select>
+                        
+                        
+                        Driver *<select label="Driver" jsfc="h:selectOneMenu" id="selectReleasedDriver" value="#{idaMedicalCaseClosureController.form.driverValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allDriverMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Driver" />
+                        </select>
+                        
+                        
+                        Catcher *<select label="Catcher" jsfc="h:selectOneMenu" id="selectReleasedCatcher" value="#{idaMedicalCaseClosureController.form.catcherValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{idaMedicalCaseClosureController.form.allCatcherMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Catcher" />
+                        </select>
+
+                        
+
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

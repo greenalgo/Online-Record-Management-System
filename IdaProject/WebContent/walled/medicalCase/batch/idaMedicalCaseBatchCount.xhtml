@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+
+
+
+
+
+
+<ui:composition template="../../../templates/template.xhtml">
+	<ui:param name="title" value="Set Ida Medical Case Batch Count"></ui:param>
+	<ui:define name="box">
+
+		<div class="box">
+		<h1>Set Ida Medical Case Batch Count</h1>
+		<h:messages style="color: red"/>
+		<form jsfc="h:form" id="setIdaMedicalCaseBatchCount">
+	 	 <table border="0">
+		 	<tr>
+   	    		<td>Batch Count *</td>
+   	    		<td><input id="batchCount" type="text" jsfc="h:inputText" label="Batch Count" value="#{registerIdaMedicalCaseBatchController.batchCount}" size="2" required="true"/></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	<tr>
+   	    		<td>Person Type *</td>
+   	    		<td><select jsfc="h:selectOneMenu" label="Person Type" id="idaCasePersonType" value="#{registerIdaMedicalCaseBatchController.idaCasePersonTypeValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.idaCasePersonTypeMap}" />
+    	    			  <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                  <f:attribute name="label" value="Person Type" />
+					</select>
+				</td>
+   	    		<td></td>
+   	    	</tr>
+   	    	<tr>
+   	    		<td>Ngo *</td>
+   	    		<td><select jsfc="h:selectOneMenu" label="Ngo" id="selectNgo" value="#{registerIdaMedicalCaseBatchController.ngoValue}" required="true"> 
+    	    			  <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.ngoMap}" />
+    	    			  	<f:validator validatorId="com.green.jsf.SelectValidator" />
+    	    			  	
+    	    			  	 <f:attribute name="label" value="Ngo" />
+    	    			  	 
+					</select>
+					</td>
+   	    		<td></td>
+   	    	</tr>
+                 <tr>
+   	    		<td>Activity *</td>
+                        <td><select jsfc="h:selectOneMenu" label="Activity" id="selectActivity" value="#{registerIdaMedicalCaseBatchController.idaCaseActivityValue}" required="true"> 
+                                <option jsfc="f:selectItems" value="#{registerIdaMedicalCaseBatchController.idaCaseActivityMap}" />
+    	    			  	<f:validator validatorId="com.green.jsf.SelectValidator" />
+    	    			  	
+    	    			  	 <f:attribute name="label" value="Activity" />
+    	    			  	 
+					</select>
+					</td>
+   	    		<td></td>
+   	    	</tr>    
+   	    	
+   	    	</table>
+		<input type="submit" jsfc="h:commandButton" value="Submit"  action="#{registerIdaMedicalCaseBatchController.showBatchEntryPage}"/>
+			
+		
+		</form>
+		
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

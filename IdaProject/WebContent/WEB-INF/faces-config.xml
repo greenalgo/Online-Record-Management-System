@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0"><!--
+              
+              <lifecycle>
+<phase-listener>com.green.test.Tracker</phase-listener>
+</lifecycle>
+  --><application>
+  	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+  	
+    <!--<resource-bundle>
+      <base-name>com.test.messages</base-name>
+      <var>msgs</var>
+    </resource-bundle>
+  --></application>
+  
+  <navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/walled/error/error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+  
+  <validator>
+        <validator-id>com.green.jsf.SelectValidator</validator-id>
+        <validator-class>com.green.jsf.validator.selection.SelectValidator</validator-class>
+    </validator>
+    
+    <validator>
+        <validator-id>com.green.jsf.SelectValidatorDependsIsRequired</validator-id>
+        <validator-class>com.green.jsf.validator.selection.SelectValidatorDependsIsRequired</validator-class>
+    </validator>
+    
+     <validator>
+        <validator-id>com.green.jsf.MultiSelectValidatorForLongId</validator-id>
+        <validator-class>com.green.jsf.validator.selection.MultiSelectValidatorForLongId</validator-class>
+    </validator>
+    
+    <validator>
+        <validator-id>com.green.jsf.MultiSelectValidatorForLongIdDependsIsRequired</validator-id>
+        <validator-class>com.green.jsf.validator.selection.MultiSelectValidatorForLongIdDependsIsRequired</validator-class>
+    </validator>
+    
+     <validator>
+        <validator-id>com.green.jsf.MultiSelectValidatorForStringId</validator-id>
+        <validator-class>com.green.jsf.validator.selection.MultiSelectValidatorForStringId</validator-class>
+    </validator>
+    
+   
+    
+  	<navigation-rule>
+		<display-name>walled/doctor/registerDoctor.xhtml</display-name>
+		<from-view-id>/walled/doctor/registerDoctor.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registeredDoctorDetails</from-outcome>
+			<to-view-id>/walled/doctor/doctorDetailsView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>walled/doctor/editDoctor.xhtml</display-name>
+		<from-view-id>/walled/doctor/editDoctor.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>editedDoctorDetails</from-outcome>
+			<to-view-id>/walled/doctor/doctorDetailsView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>walled/medicalCase/registerIdaMedicalCase.xhtml</display-name>
+		<from-view-id>/walled/medicalCase/registerIdaMedicalCase.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registeredIdaMedicalCase</from-outcome>
+			<to-view-id>/walled/medicalCase/idaMedicalCaseView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>walled/medicalCase/editIdaMedicalCase.xhtml</display-name>
+		<from-view-id>/walled/medicalCase/editIdaMedicalCase.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>editedIdaMedicalCaseDetails</from-outcome>
+			<to-view-id>/walled/medicalCase/idaMedicalCaseView.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>walled/idaMedicalCaseSearch.xhtml</display-name>
+		<from-view-id>/walled/medicalCase/search/idaMedicalCaseSearch.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>search</from-outcome>
+			<to-view-id>/walled/medicalCase/search/idaMedicalCaseSearchList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        <navigation-rule>
+		<display-name>walled/idaCallSearch.xhtml</display-name>
+		<from-view-id>/walled/callRegister/search/idaCallSearch.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>search</from-outcome>
+			<to-view-id>/walled/callRegister/search/idaCallSearchList.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        <navigation-rule>
+		<display-name>walled/r</display-name>
+		<from-view-id>/walled/medicalCase/closure/idaMedicalCaseClose.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>_idaRelease</from-outcome>
+			<to-view-id>/walled/partials/closure/_idaRelease.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        
+           <navigation-rule>
+		<display-name>walled/idaCallSearch.xhtml</display-name>
+		<from-view-id>/walled/callRegister/search/idaCallSearchList.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registerIdaMedicalCaseBatch</from-outcome>
+			<to-view-id>/walled/medicalCase/batch/registerIdaMedicalCaseBatch</to-view-id>                                  
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Ngo Catcher List"></ui:param>
+     <f:metadata>
+      	<f:event type="preRenderView" listener="#{registerNgoCatcherController.searchAllNgoCatcher}" />
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ngo Driver List</h1>
+        <form jsfc="h:form" id="editNgoCatcher">
+          <h:dataTable value="#{registerNgoCatcherController.ngoCatcherList}" var="ngoCatcher">
+        	
+        	<h:column>
+  				<f:facet name="header">Id</f:facet>
+        		<h:link value="#{ngoCatcher.id}" outcome="/walled/ngoCatcher/editNgoCatcher.faces">
+					<f:param name="editId" value="#{ngoCatcher.id}" />
+				</h:link>
+        	</h:column>	
+        	<h:column>
+  				<f:facet name="header">Ngo</f:facet>
+        		<h:outputText value="#{ngoCatcher.ngo.ngoName}"/>
+        	</h:column>	
+        	<h:column>
+  				<f:facet name="header">Catcher</f:facet>
+        		<h:outputText value="#{ngoCatcher.name.fullName}"/>
+        	</h:column>	
+        </h:dataTable>
+        <br />
+        <br />
+        <h:link value="All Edit List" outcome="/walled/editSearchLists/editSearchLists.faces">
+					</h:link>
+		</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

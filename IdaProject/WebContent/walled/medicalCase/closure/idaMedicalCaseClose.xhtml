@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../../templates/template.xhtml">
+      <ui:param name="title" value="Ida Medical Case Closure"></ui:param>
+      <f:metadata>
+      	<f:viewParam name="closureId" value="#{idaMedicalCaseClosureController.idaCase.id}"/>
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ida Medical Case Close</h1>
+        <form jsfc="h:form" id="closeIdaMedicalCase">
+            <h:messages style="color: red"/>
+            <h:panelGrid columns="2">
+                
+                Case Closure Date: <input id="caseClosureDate"  label="Case Closure Date" type="text" jsfc="h:inputText" value="#{idaMedicalCaseClosureController.idaCaseResult.closureDate}" size="11" required="true">
+											<f:convertDateTime pattern="dd/MM/yyyy"/>
+									</input>	
+            	Case Closure Type:  <h:selectOneMenu label="Case Closure Type" valueChangeListener="#{idaMedicalCaseClosureController.processCaseTypeChange}" id="selectCaseClosureType" value="#{idaMedicalCaseClosureController.idaCaseResultTypeValue}" required="true" onchange="submit()">
+                                        <f:selectItems value="#{idaMedicalCaseClosureController.idaCaseResultTypeMap}" />
+                                </h:selectOneMenu>
+                
+              	
+				
+	        </h:panelGrid>
+	        <input id="toClose" type="text" jsfc="h:inputHidden" value="#{idaMedicalCaseClosureController.idaCase.id}"/>
+	        
+                
+              
+               
+                
+                   <ui:include src="../../partials/closure/_idaAdoption.xhtml">
+                     <ui:param name="controller" value="#{idaMedicalCaseClosureController}" />
+                 </ui:include>
+                
+                 <ui:include src="../../partials/closure/_idaRelease.xhtml">
+                    
+                 </ui:include>
+                
+                <ui:include src="../../partials/closure/_idaBuriedInCenter.xhtml">
+                    
+                 </ui:include>
+                
+                <ui:include src="../../partials/closure/_idaKoraKendara.xhtml">
+                    
+                 </ui:include>
+                
+                
+                <ui:include src="../../partials/closure/_idaResident.xhtml">
+                    <ui:param name="controller" value="#{idaMedicalCaseClosureController}" />
+                 </ui:include>
+        
+           
+                
+                <input type="submit" jsfc="h:commandButton" value="Close"  action="#{idaMedicalCaseClosureController.closeIdaCase}"/>
+               
+        </form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

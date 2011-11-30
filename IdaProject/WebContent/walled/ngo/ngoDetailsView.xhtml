@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Ngo Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Ngo</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerNgoController.ngo.id}" />
+			<f:event type="preRenderView" listener="#{registerNgoController.searchForNgo}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredNgo">
+		 
+
+            <table border="0">
+                 <tr><td><strong></strong></td><td> <h:outputText value=""/></td></tr>
+                        <tr><td><strong>Ngo Details</strong></td><td> <h:outputText value=""/></td></tr>
+                        <tr><td><strong></strong></td><td> <h:outputText value=""/></td></tr>
+                     
+                <tr><td>Ngo:</td><td> <h:outputText value="#{registerNgoController.ngo.ngoName}" /></td></tr>
+                
+                 <tr><td><strong></strong></td><td> <h:outputText value=""/></td></tr>
+                        <tr><td><strong>Chair Person Details</strong></td><td> <h:outputText value=""/></td></tr>
+                        <tr><td><strong></strong></td><td> <h:outputText value=""/></td></tr>
+                     
+                
+                <tr><td>First Name:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.name.firstName}"/></td></tr>
+   	    	
+   	    	<tr><td>Middle Name:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.name.middleName}"/></td></tr>
+   	    	
+   	    	<tr><td>Last Name:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.name.lastName}" /></td></tr>
+   	    	
+                <tr><td>Gender:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.gender.viewValue}" /></td></tr>
+    	   
+    	   	<tr><td>LandLine:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.contactDetails.landLine}" /></td></tr>
+    	   
+    	   	<tr><td>Mobile:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.contactDetails.mobile}" /></td></tr>
+    	   
+    	   	<tr><td>Email-Id: </td><td><h:outputText value="#{registerNgoController.ngo.chairPerson.contactDetails.emailId}" /></td></tr>
+    	   	
+    	   	<tr><td>Address Line 1:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.address.lineOne}"/></td></tr>
+    	   
+    	    <tr><td>Address Line 2:</td><td> <h:outputText value="#{registerNgoController.ngo.chairPerson.address.lineTwo}"/></td></tr>
+    	    
+    	    <tr><td>Zip: </td><td><h:outputText value="#{registerNgoController.ngo.chairPerson.address.zip}" /></td></tr>
+    	    
+            <tr><td> Locality:</td><td> <h:outputText value="#{registerNgoController.localityName}" /> </td></tr>   	    
+    	   
+    		
+
+            </table>
+		
+		
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

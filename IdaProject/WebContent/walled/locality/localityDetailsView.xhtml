@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Locality Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Locality</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerLocalityController.locality.id}" />
+			<f:event type="preRenderView" listener="#{registerLocalityController.searchForLocality}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredLocality">
+		 
+
+            <table border="0">
+                <tr><td>Locality :</td><td> <h:outputText value="#{registerLocalityController.locality.locality}"/></td></tr>
+   	    	
+                <tr><td>Distinguished: </td><td><h:outputText value="#{registerLocalityController.locality.distinguished}"/> </td></tr>    
+    	   
+    		
+
+            </table>
+		
+		
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

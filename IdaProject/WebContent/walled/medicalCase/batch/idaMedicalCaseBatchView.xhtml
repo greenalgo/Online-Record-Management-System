@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../../templates/template.xhtml">
+      <ui:param name="title" value="Ida Medical Case Batch Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ida Medical Case Batch Details</h1>
+        <f:metadata>
+			<f:viewParam name="idCsv" value="#{registerIdaMedicalCaseBatchController.batchIdaCaseCsvList}" />
+			<f:event type="preRenderView" listener="#{registerIdaMedicalCaseBatchController.searchForIdaBatchCase}" />
+		</f:metadata>
+		<h:messages />
+        <form jsfc="h:form" id="registeredIdaMedicalCaseBatch">
+        
+        <strong>Case Details</strong> 
+        
+        <table border="0">
+       
+        
+        <tr><td>Case Date:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].admittedOn}">
+        							<f:convertDateTime pattern="dd/MM/yyyy"/>
+        							</h:outputText></td></tr>
+            
+       <tr><td>Activity:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].idaCaseActivity}">
+        							
+        							</h:outputText></td></tr>     
+       <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+       <tr><td> <strong>Person Details</strong></td><td> <h:outputText value=""/></td></tr>
+       <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+       
+        	
+        	<tr> <td>First Name: </td><td><h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.name.firstName}"/>  </td></tr>
+        	
+        	<tr> <td>Middle Name:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.name.middleName}"/>  </td></tr>
+        	
+        	<tr> <td>Last Name:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.name.lastName}"/>  </td></tr>
+        	
+        	<tr> <td>Person Type:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.personType.viewValue}"/>  </td></tr>
+        	
+        	<tr> <td>Gender: </td><td><h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.gender.viewValue}"/>  </td></tr>
+        	
+        	<tr> <td>Landline:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.contactDetails.landLine}"/>  </td></tr>
+        	
+        	<tr> <td>Mobile: </td><td><h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.contactDetails.mobile}"/>  </td></tr>
+        	
+        	<tr> <td>Email-Id:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.contactDetails.emailId}"/>  </td></tr>
+        	
+        	<tr> <td>Address Line 1:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.address.lineOne}"/>  </td></tr>
+        	
+        	<tr> <td>Address Line 2:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.address.lineTwo}"/>  </td></tr>
+        	
+        	<tr> <td>Zip:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.address.zip}"/>  </td></tr>
+        	
+                <tr> <td>Locality:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].personReportingCase.address.locality.localityName}"/>  </td></tr>
+        	
+         <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>	
+       <tr><td> <strong>Brought From Area</strong></td><td> <h:outputText value=""/></td></tr>
+       <tr><td> <strong></strong></td><td> <h:outputText value=""/></td></tr>
+        	
+        	<tr><td>Address Line 1:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].broughtFromArea.lineOne}"/></td></tr>
+        	
+        	<tr><td>Address Line 2:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].broughtFromArea.lineTwo}"/></td></tr>
+        	
+        	<tr><td>Zip:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].broughtFromArea.zip}"/></td></tr>
+        	
+                <tr><td>Locality:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].broughtFromArea.locality.localityName}"/></td></tr>
+        	
+        	<tr><td>Doctor:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].doctor.name.fullName}"/></td></tr>
+        	
+        	<tr><td>Driver:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].ngoDriver.concatenatedNgoAndDriverFullName}"/></td></tr>
+        	
+        	<tr><td>Catcher:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].ngoCatcher.concatenatedNgoAndCatcherFullName}"/></td></tr>
+        	
+        	<tr><td>Vehicle:</td><td> <h:outputText value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase[0].ngoVehicle.concatenatedNgoRegistrationNoAndVehicleType}"/></td></tr>
+        	
+        	<tr><td><strong></strong> </td><td><h:outputText value=""/></td></tr>
+        	<tr><td><strong>Batch Details</strong> </td><td><h:outputText value=""/></td></tr>
+        	<tr><td><strong></strong></td><td> <h:outputText value=""/></td></tr>
+       </table>
+        
+        <h:dataTable value="#{registerIdaMedicalCaseBatchController.ingestedBatchCase}" var="idaCase">
+        	
+        	<h:column>
+  				<f:facet name="header">Id</f:facet>
+        		<h:outputText value="#{idaCase.id}"/>
+        	</h:column>	
+        	
+            <h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">Token</f:facet>
+        		<h:outputText value="#{idaCase.tokenNumber}"/>
+        	</h:column>	
+            
+                <h:column rendered="#{!registerIdaMedicalCaseBatchController.isMobileCase}">
+  				<f:facet name="header">Kennel No.</f:facet>
+                                <h:outputText value="#{idaCase.kennelNumber}"/>
+        	</h:column>	
+        	
+        	
+        	<h:column>
+  				<f:facet name="header">Case</f:facet>
+        		<h:outputText value="#{idaCase.idaCaseType.viewValue}"/>
+        	</h:column>	
+        	
+        	
+        	<h:column>
+  				<f:facet name="header">Sterlization</f:facet>
+                                <h:outputText value="#{idaCase.sterlizationDate}">
+        								<f:convertDateTime pattern="dd/MM/yyyy"/>
+        							</h:outputText>
+        	</h:column>	
+        	
+        	
+        	<h:column>
+  				<f:facet name="header">Gender</f:facet>
+        		<h:outputText value="#{idaCase.idaDog.genderViewValue}"/>
+        	</h:column>	
+        	
+        	
+        	<h:column>
+  				<f:facet name="header">Age</f:facet>
+                                <h:outputText rendered="#{idaCase.idaDog.dogAgeFromDateOfBirth != null and idaCase.idaDog.dogAgeFromDateOfBirth > 0}" value="#{idaCase.idaDog.dogAgeFromDateOfBirth}"/>
+        	</h:column>	
+        	
+        	
+        	<h:column>
+  				<f:facet name="header">Reason</f:facet>
+        		<h:outputText value="#{idaCase.idaCaseAdmissionReasonsCsvList}"/>
+        	</h:column>	
+        	
+        	
+        
+        	
+        	
+        	</h:dataTable>
+        	
+        
+
+        </form>      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

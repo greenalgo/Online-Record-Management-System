@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Registered Ngo Driver Details"></ui:param>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Registered Ngo Driver</h1>
+        <f:metadata>
+			<f:viewParam name="id" value="#{registerNgoDriverController.ngoDriver.id}" />
+			<f:event type="preRenderView" listener="#{registerNgoDriverController.searchForNgoDriver}" />
+		</f:metadata>
+        <form jsfc="h:form" id="registeredNgoDriver">
+		 <h:messages layout="table"></h:messages>
+
+            <table border="0">
+                <tr><td>First Name:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.name.firstName}"/></td></tr>
+   	    	
+   	    	<tr><td>Middle Name:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.name.middleName}"/></td></tr>
+   	    	
+   	    	<tr><td>Last Name:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.name.lastName}" /></td></tr>
+   	    	
+   	    	<tr><td>Gender:</td><td> <h:outputText value="#{registerNgoDriverController.genderName}" /></td></tr>
+    	   
+    	   	<tr><td>LandLine:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.contactDetails.landLine}" /></td></tr>
+    	   
+    	   	<tr><td>Mobile:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.contactDetails.mobile}"/> </td></tr>
+    	   
+    	   	<tr><td>Email-Id: </td><td><h:outputText value="#{registerNgoDriverController.ngoDriver.contactDetails.emailId}" /></td></tr>
+    	   	
+    	   	<tr><td>Address Line 1:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.address.lineOne}"/></td></tr>
+    	   
+    	    <tr><td>Address Line 2:</td><td> <h:outputText value="#{registerNgoDriverController.ngoDriver.address.lineTwo}"/></td></tr>
+    	    
+    	    <tr><td>Zip: </td><td><h:outputText value="#{registerNgoDriverController.ngoDriver.address.zip}" /></td></tr>
+    	    
+    	   <tr><td> Locality:</td><td> <h:outputText value="#{registerNgoDriverController.localityName}" /> </td></tr>   	    
+    	   
+    		<tr><td>Ngo:</td><td> <h:outputText value="#{registerNgoDriverController.ngoName}" /></td></tr>
+
+            </table>
+		
+		
+		
+		</form>
+      
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

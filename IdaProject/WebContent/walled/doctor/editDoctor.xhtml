@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Edit Doctor"></ui:param>
+      <f:metadata>
+      	<f:viewParam name="editId" value="#{registerDoctorController.idaCaseDoctor.id}"/>
+      	<f:event type="preRenderView" listener="#{registerDoctorController.doctorForEdit}" />
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Edit Doctor</h1>
+        <form jsfc="h:form" id="editDoctor">
+         <ui:include src="../partials/doctor/_idaDoctor.xhtml"></ui:include>
+         <input type="submit" jsfc="h:commandButton" value="Edit"   action="#{registerDoctorController.updateDoctor}"/>
+      <input id="toEdit" type="text" jsfc="h:inputHidden" value="#{registerDoctorController.idaCaseDoctor.id}"/>
+		<input id="toEditAddress" type="text" jsfc="h:inputHidden" value="#{registerDoctorController.idaCaseDoctor.address.id}"/>
+		<input id="byPassEditGetListener" type="text" jsfc="h:inputHidden" value="#{registerDoctorController.byPassEditGetListener}"/>
+		<br/>
+      <br/>
+		<h:link value="All Doctors" outcome="/walled/doctor/doctorSearchList.faces">
+					</h:link>
+		
+		</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

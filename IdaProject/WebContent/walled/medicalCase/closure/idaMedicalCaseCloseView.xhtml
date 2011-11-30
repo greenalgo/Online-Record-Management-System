@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../../templates/template.xhtml">
+      <ui:param name="title" value="Ida Medical Case Closed"></ui:param>
+      <f:metadata>
+          <f:viewParam name="closureId" value="#{idaMedicalCaseClosureController.idaCase.idaCaseResult.id}"/>
+          <f:viewParam name="caseId" value="#{idaMedicalCaseClosureViewController.idaCase.id}"/>
+      	<f:event type="preRenderView" listener="#{idaMedicalCaseClosureController.searchForIdaCase}" />
+      </f:metadata>
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Ida Medical Case Closed</h1>
+        <form jsfc="h:form" id="closedIdaMedicalCase">
+            <table border="0">
+                <tr><td>Case Id:</td><td> <h:outputText value="#{idaMedicalCaseClosureController.idaCase.id}"/> </td></tr>
+            	<tr><td>Case Closure Type:</td><td> <h:outputText value="#{idaMedicalCaseClosureController.idaCase.idaCaseResult.idaResultType}"/> </td></tr>
+                <tr><td>Case Closure Date:</td><td> <h:outputText value="#{idaMedicalCaseClosureController.idaCase.idaCaseResult.closureDate}">
+        								<f:convertDateTime pattern="dd/MM/yyyy"/>
+        							</h:outputText></td></tr>
+            </table>
+	        
+        </form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+
+
+
+
+
+
+<ui:composition template="../../../templates/template.xhtml">
+	<ui:param name="title" value="Search Ida Call Case"></ui:param>
+	<ui:define name="box">
+
+
+		<div class="box">
+		<h1>Search Ida Call Case</h1>
+		<form jsfc="h:form" id="searchCallCase">
+                    <h:messages style="color: red"/>
+	 	<table border="0">
+		 	<tr>
+   	    		<td>First Name: </td>
+                        <td><input id="name" type="text" label="Name" jsfc="h:inputText" value="#{idaCallSearchController.idaCallSearchForm.complainerName}" size="40" /></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Mobile: </td>
+                        <td><input id="mobile" type="text" label="Mobile"  jsfc="h:inputText" value="#{idaCallSearchController.idaCallSearchForm.mobile}" size="15"/></td>
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Status: </td>
+   	    		<td>
+                            <select jsfc="h:selectOneMenu" id="status" value="#{idaCallSearchController.idaCallSearchForm.callStatus}"> 
+                                <option jsfc="f:selectItems" value="#{idaCallSearchController.statusMap}" />
+                                  
+					</select> 
+                        </td>                
+   	    		<td></td>
+   	    	</tr>
+   	    	
+   	    	<tr>
+   	    		<td>Complain Date: </td>
+   	    		<td>
+                            <input id="complainDate" type="text" jsfc="h:inputText" value="#{idaCallSearchController.idaCallSearchForm.callDate}" size="11">
+   	    				<f:convertDateTime pattern="dd/MM/yyyy"/>
+   	    			</input>
+   	    		</td>
+   	    		<td></td>
+   	    	</tr>
+   	 
+   	    	<tr>
+	   	    	<td height="50" colspan="10"><strong>&nbsp;</strong></td>
+	   	    	<td></td>
+	   	    	<td></td>
+   	    	</tr>
+   	    	
+   	    	
+   	    	
+   	    	
+   	   
+
+  		</table>
+                    <input type="submit" jsfc="h:commandButton" value="Search"  action="#{idaCallSearchController.searchIdaCallCases}"/>
+		
+		
+		</form>
+		
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

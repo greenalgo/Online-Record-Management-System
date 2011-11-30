@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Edit Ida Medical Case"></ui:param>
+      <f:metadata>
+      	<f:viewParam name="editId" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+      	<f:event type="preRenderView" listener="#{registerIdaMedicalCaseController.idaCaseForEdit}" />
+      </f:metadata>
+      <ui:define name="box">
+      <h:outputScript id="js" library="javascript" name="jquery-1.4.2.min.js" target="head"/>
+     
+      <script>
+      jQuery(
+    			function() {
+
+    		
+    			 
+    			 
+    			 
+    			$(".block").bind({
+    				keyup: function(event) { 
+    				event.preventDefault();
+
+    					
+    					
+    				},
+
+    			keydown: function(event) { 
+    				
+    					event.preventDefault();
+
+    				
+    				}
+    			});
+
+    			
+
+
+    			});
+
+      </script>
+      <div class="box">
+        <h1>Edit Ida Medical Case</h1>
+        <form jsfc="h:form" id="editIdaMedicalCase" prependId="false">
+        <ui:include src="../partials/medicalCase/_idaMedicalCase.xhtml"></ui:include>
+        <input type="submit" jsfc="h:commandButton" value="Edit"  action="#{registerIdaMedicalCaseController.updateIdaCase}"/>
+      	<input id="toEdit" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.idaCase.id}"/>
+      	<input id="byPassEditGetListener" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.byPassEditGetListener}"/>
+      	<input id="idaCasePerson" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.idaCasePerson.id}"/>
+        <input id="idaCaseDog" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.idaDog.id}"/>
+        <input id="dogBroughtFromArea" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.dogBroughtFromArea.id}"/>
+        <input id="idaCasePersonAddress" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.idaCasePerson.address.id}"/>
+      	<input id="isReadOnly" type="text" jsfc="h:inputHidden" value="#{sessionScope.isReadOnly}"/>
+      	<input id="isMobileActivity" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.isMobileActivity}"/>
+      	<input id="caseActivity" type="text" jsfc="h:inputHidden" value="#{registerIdaMedicalCaseController.idaCase.idaCaseActivity}"/>
+      	
+      	</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>

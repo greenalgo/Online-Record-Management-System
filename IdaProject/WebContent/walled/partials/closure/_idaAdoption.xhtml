@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+		 
+
+    <h:panelGrid id="adoption" columns="2" rendered="#{controller.isCaseClosureVisisbleFor('Adopted')}">
+                     
+                        <strong></strong> <h:outputText value=""/>
+                        <strong>Center Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+                     
+                        Center *<select label="Center" jsfc="h:selectOneMenu" id="selectCenter" value="#{controller.form.centerValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.centerMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Center" />
+                        </select>
+                        <strong></strong> <h:outputText value=""/>
+                        <strong>Adopter Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+
+
+
+                        Adoption Date <input id="doptionDate" label="Adoption Date" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.adoptionDate}" size="15">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                        </input>             
+                        Adopter First Name *<input id="adopterFirstName" label="Adopter First Name" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAnimalAdopter.name.firstName}" size="15" required="true"/>
+
+                        Adopter Last Name *<input id="adopterLastName" label="Adopter Last Name" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAnimalAdopter.name.lastName}" size="15" required="true"/>
+
+                        Address <input id="address" label="Address" type="text" jsfc="h:inputTextarea" value="#{controller.form.idaAdoption.idaAnimalAdopter.simpleAddress}" rows="1" cols="10" />
+
+                        Gender *<select label="Gender" jsfc="h:selectOneMenu" id="selectAdopterGender" value="#{controller.form.adopterGenderValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.genderMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Gender" />
+                        </select>
+
+                        Mobile <input id="mobile" label="Mobile" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAnimalAdopter.contactDetails.mobile}" size="12"/>
+
+                         <strong></strong> <h:outputText value=""/>
+                        <strong>Animal Details</strong> <h:outputText value=""/>
+                        <strong></strong> <h:outputText value=""/>
+
+                        Name *<input id="name" label="Name" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAdoptedAnimal.name}" size="15" required="true"/>
+
+                        Gender *<select label="Gender" jsfc="h:selectOneMenu" id="selectDogGender" value="#{controller.form.dogGenderValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.genderMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Gender" />
+                        </select>
+
+                        Type *<select label="Type" jsfc="h:selectOneMenu" id="selectAnimalType" value="#{controller.form.animalTypeValue}" required="true"> 
+                                          <option jsfc="f:selectItems" value="#{controller.form.animalTypeMap}" />
+                                          <f:validator validatorId="com.green.jsf.SelectValidator" />
+                                          <f:attribute name="label" value="Type" />
+                        </select>
+
+                        Age <input id="emailId" label="Age" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAdoptedAnimal.age}" size="2" />
+
+                        Breed <input id="breed" label="Breed" type="text" jsfc="h:inputText" value="#{controller.form.idaAdoption.idaAdoptedAnimal.breedType}" size="40"/>
+
+                        Physical Description <input id="physicalDescription" label="Physical Description" type="text" jsfc="h:inputTextarea" value="#{controller.form.idaAdoption.idaAdoptedAnimal.animalDescription}" rows="4" cols="10" />
+
+
+    	    
+    	   
+    		
+    		
+			
+				
+		
+			
+
+	</h:panelGrid>
+		
+		
+		
+</ui:composition>		

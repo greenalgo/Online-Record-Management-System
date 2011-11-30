@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+
+ 
+    
+      
+      
+      
+      
+      <ui:composition template="../../templates/template.xhtml">
+      <ui:param name="title" value="Edit Search Lists"></ui:param>
+     
+      <ui:define name="box">
+      
+      <div class="box">
+        <h1>Edit Search Lists</h1>
+        <form jsfc="h:form" id="editSearchLists">
+          <table>
+                <tr>
+           		<td>
+           			<h:link value="Localities" outcome="/walled/locality/localitySearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          	<tr>
+           		<td>
+           			<h:link value="Drivers" outcome="/walled/ngoDriver/ngoDriverSearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          	<tr>
+           		<td>
+           			<h:link value="Catchers" outcome="/walled/ngoCatcher/ngoCatcherSearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          	<tr>
+           		<td>
+           			<h:link value="Ngos" outcome="/walled/ngo/ngoSearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          	<tr>
+           		<td>
+           			<h:link value="Doctors" outcome="/walled/doctor/doctorSearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          	<tr>
+           		<td>
+           			<h:link value="Vehicles" outcome="/walled/ngoVehicle/ngoVehicleSearchList.faces">
+					</h:link>
+           		</td>
+          	</tr>
+          </table>
+		</form>
+      </div>
+      
+      </ui:define>
+      </ui:composition>
+    
+    
+    
+    
+    
+    
+
+  
+  
+  
+
+  
+
+
+</body>
+
+</html>
